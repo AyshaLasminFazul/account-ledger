@@ -179,6 +179,10 @@ class InterestServiceTest {
                 ledgerService.closingBalance(account, 6)
         );
     }
+    /*
+     * Design check: without the Day 6 idempotency guard, calling capitalization
+     * twice creates duplicate interest entries. This test prevents that defect.
+     */
     @Test
     void shouldNotCapitalizeInterestMoreThanOnce() {
 
